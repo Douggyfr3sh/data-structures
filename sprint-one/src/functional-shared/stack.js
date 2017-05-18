@@ -23,18 +23,20 @@ var stackMethods = {
     //decrement count of items in stack
     console.log('before pop ',this.items);
     var key;
+
     if (this.cnt > 0) {
       //Get a collection of keys from our stack
       var keys = Object.keys(this.items);
       //Determine which key to remove
       key = keys[this.cnt - 1];
-      delete this.items[this.cnt -1];
+      var retVal = this.items[key];
+      delete this.items[this.cnt - 1];
       console.log('after pop ', this.items);
       this.cnt--;
     }
-    console.log('before return', key);
+    console.log('before return', retVal);
     //If stack is empty, return undefined
-    return this.items[key];
+    return retVal;
   },
 
   size: function() {
