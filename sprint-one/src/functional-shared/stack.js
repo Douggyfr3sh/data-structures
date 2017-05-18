@@ -1,8 +1,68 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
+  var storage = {};
+
+  storage.items = {};
+
+  storage.pop = stackMethods.pop;
+  storage.push = stackMethods.push;
+  storage.size = stackMethods.size;
+  storage.cnt = 0;
+
+  return storage;
 };
 
-var stackMethods = {};
+var stackMethods = {
+  push: function (value) {
+    this.items[this.cnt] = value;
+    this.cnt++;
+  },
+
+  pop: function () {
+    //decrement count of items in stack
+    console.log('before pop ',this.items);
+    var key;
+    if (this.cnt > 0) {
+      //Get a collection of keys from our stack
+      var keys = Object.keys(this.items);
+      //Determine which key to remove
+      key = keys[this.cnt - 1];
+      delete this.items[this.cnt -1];
+      console.log('after pop ', this.items);
+      this.cnt--;
+    }
+    console.log('before return', key);
+    //If stack is empty, return undefined
+    return this.items[key];
+  },
+
+  size: function() {
+    return this.cnt;
+  }
+};
+
+// var stackMethods = function () {
+
+//     var pop = function () {
+//     //decrement count of items in stack
+//     var key;
+//     if (this.cnt > 0) {
+//       var keys = Object.keys(this);
+//       key = keys[cnt];
+//       delete this[cnt - 1];
+//       this.cnt--;
+//     }
+
+//     //If stack is empty, return undefined
+//     return key;
+//   };
+// };
+
+
+
+
+
+
 
 
