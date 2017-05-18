@@ -21,9 +21,7 @@ var stackMethods = {
 
   pop: function () {
     //decrement count of items in stack
-    console.log('before pop ',this.items);
     var key;
-
     if (this.cnt > 0) {
       //Get a collection of keys from our stack
       var keys = Object.keys(this.items);
@@ -31,10 +29,9 @@ var stackMethods = {
       key = keys[this.cnt - 1];
       var retVal = this.items[key];
       delete this.items[this.cnt - 1];
-      console.log('after pop ', this.items);
+
       this.cnt--;
     }
-    console.log('before return', retVal);
     //If stack is empty, return undefined
     return retVal;
   },
@@ -44,22 +41,6 @@ var stackMethods = {
   }
 };
 
-// var stackMethods = function () {
-
-//     var pop = function () {
-//     //decrement count of items in stack
-//     var key;
-//     if (this.cnt > 0) {
-//       var keys = Object.keys(this);
-//       key = keys[cnt];
-//       delete this[cnt - 1];
-//       this.cnt--;
-//     }
-
-//     //If stack is empty, return undefined
-//     return key;
-//   };
-// };
 
 
 
