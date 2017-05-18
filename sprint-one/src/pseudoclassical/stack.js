@@ -21,9 +21,9 @@ Stack.prototype.push = function (value) {
 Stack.prototype.pop = function() {
   if (this.count > 0) {
     //create variable to store return value
-    var retVal = this.container[this.count -1];
+    var retVal = this.container[this.count - 1];
     //remove the value
-    delete this.container[this.count -1];
+    delete this.container[this.count - 1];
     //decrement count
     this.count --;
   }
