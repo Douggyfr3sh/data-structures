@@ -21,16 +21,16 @@ var stackMethods = {
 
   pop: function () {
     //condition of the count is greater than zero
-      if (this.count > 0) {
+    if (this.count > 0) {
         //create a variable to hold the return value
-        var retVal = this.container[this.count - 1];
+      var retVal = this.container[this.count - 1];
         //remove the value of the container
-        delete this.container[this.count - 1];
-        //decrease the counter
-        this.count--;
-      }
+      delete this.container[this.count - 1];
+      //decrease the counter
+      this.count--;
+    }
 
-      return retVal;
+    return retVal;
   }
 
 };
