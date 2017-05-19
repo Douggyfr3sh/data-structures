@@ -11,16 +11,16 @@ var Queue = function() {
 
 var queueMethods = {
 
-  size : function() {
+  size: function() {
     return this.counter;
   },
 
-  enqueue : function(value) {
+  enqueue: function(value) {
     this.container[this.counter] = value;
-    this.counter++;
+    this.counter++;
   },
 
-  dequeue : function() {
+  dequeue: function() {
 
     if (this.counter > 0) {
       var retVal = this.container[0];
