@@ -4,7 +4,7 @@ var Stack = function() {
   // Use an object with numeric keys to store values
   var storage = {};
   var counter = 0;
-  // Implement the methods below.
+  // Implement the methods below
   var retVal;
 
   someInstance.push = function(value) {
