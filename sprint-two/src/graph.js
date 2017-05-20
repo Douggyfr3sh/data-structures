@@ -81,4 +81,7 @@ Graph.prototype.forEachNode = function(cb) {
  * Complexity: What is the time complexity of the above functions?
  */
 
+ /*All functions are O(1) - constant time, except for forEachNode which is O(n) - linear time */
+
+
 
