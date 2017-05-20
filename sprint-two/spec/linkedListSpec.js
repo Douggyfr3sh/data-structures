@@ -26,7 +26,7 @@ describe('linkedList', function() {
   it('should remove the head from the list when removeHead is called', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
-    //head points to 4 tail points to 5 
+    //head points to 4 tail points to 5
     //but 4 points to null and should point to 5
     expect(linkedList.head.value).to.equal(4);
     linkedList.removeHead();
@@ -54,4 +54,16 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should return correct value after adding single node', function() {
+    linkedList.addToTail(4);
+    linkedList.removeHead();
+    linkedList.addToTail(5);
+    expect(linkedList.head.value).to.equal(5);
+  });
+
+  it('should add value and have head and tail not equal to null', function() {
+    linkedList.addToTail(4);
+    expect(linkedList.head.value).to.not.equal(null);
+    expect(linkedList.tail.value).to.not.equal(null);
+  });
 });
