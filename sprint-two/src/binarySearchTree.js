@@ -6,7 +6,7 @@ var BinarySearchTree = function(value) {
 
 };
 
-BinarySearchTree.prototype.insert = function(value){
+BinarySearchTree.prototype.insert = function(value) {
   //checks if node contains any value
 
   if (value < this.value) { //less
@@ -32,7 +32,7 @@ BinarySearchTree.prototype.insert = function(value){
 
 };
 
-BinarySearchTree.prototype.contains = function(value){
+BinarySearchTree.prototype.contains = function(value) {
   var retVal = false;
   //recursive function
   var checkNodes = function (node) {
@@ -41,7 +41,7 @@ BinarySearchTree.prototype.contains = function(value){
     if (node.value === value) {
       //set variable to true and return
       retVal = true;
-    } else {//if not
+    } else { //if not
       //is this value less than node
         //if less
       if (value < node.value) {
@@ -65,7 +65,7 @@ BinarySearchTree.prototype.contains = function(value){
 
 };
 
-BinarySearchTree.prototype.depthFirstLog = function(cb){
+BinarySearchTree.prototype.depthFirstLog = function(cb) {
 
   var applyToNodes = function(node) {
     cb(node.value);

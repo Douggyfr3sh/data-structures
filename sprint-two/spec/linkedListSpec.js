@@ -66,4 +66,5 @@ describe('linkedList', function() {
     expect(linkedList.head.value).to.not.equal(null);
     expect(linkedList.tail.value).to.not.equal(null);
   });
+
 });

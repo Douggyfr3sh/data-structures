@@ -47,6 +47,15 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  //Custom tests added by Doug & Mark -----
+  it('should work using numbers as keys and values', function() {
+    hashTable.insert(5, 'five');
+    hashTable.insert("five", 5);
+    expect(hashTable.retrieve(5)).to.equal('five');
+    expect(hashTable.retrieve("five")).to.equal(5);
+  });
+  //---------------------------------------
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {
