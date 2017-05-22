@@ -20,6 +20,7 @@ var DoublyLinkedList = function() {
     //the pointer of the previous tail to point to the new tail
     if (list.count > 0) {
       list.tail.next = node;
+      node.previous = list.tail;
     }
 
     list.tail = node;
@@ -33,9 +34,11 @@ var DoublyLinkedList = function() {
   };
 
   list.removeTail = function() {
+    var retVal;
     //check if there are any nodes in the LL
     if (list.count > 0) {
       //if there are >1 items in LL
+      retVal = list.tail;
       if (list.count > 1) {
         //set tail.previous.next = null
         list.tail.previous.next = null;
@@ -48,6 +51,7 @@ var DoublyLinkedList = function() {
       //decrement count
       list.count--;
     }
+    return retVal;
   };
 
   list.addToHead = function(value) {
@@ -84,6 +88,7 @@ var DoublyLinkedList = function() {
       } else {
         //More than one item in the list
         //Point head to next node
+        list.head.next.previous = null;
         list.head = list.head.next;
         list.count--;
       }
