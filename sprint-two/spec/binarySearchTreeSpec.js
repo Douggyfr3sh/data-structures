@@ -37,7 +37,7 @@ describe('binarySearchTree', function() {
     expect(array).to.eql([5, 2, 3]);
   });
 
-  it('should work with negative numbers"', function() {
+  it('should work with negative numbers', function() {
     var array = [];
     var func = function(value) { array.push(value); };
     binarySearchTree.insert(-2);
