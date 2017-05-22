@@ -36,8 +36,24 @@ var DoublyLinkedList = function() {
 
   };
 
-  list.addToHead = function() {
-
+  list.addToHead = function(value) {
+    //create a node by passing value to list.createNode
+    var node = list.createNode(value);
+    //Special case- first object in the LL
+    if (list.count === 0) {
+      //point both head and tail to node
+      list.head = node;
+      list.tail = node;
+    } else { //not first item in LL
+      //set node.next to equal current head
+      node.next = list.head;
+      //set head.next.previous to equal node
+      list.head.previous = node;
+      //set head to equal current node
+      list.head = node;
+    }
+    //Increment counter
+    list.count++;
   };
 
   list.removeHead = function() {
