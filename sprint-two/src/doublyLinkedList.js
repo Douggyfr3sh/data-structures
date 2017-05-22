@@ -33,7 +33,21 @@ var DoublyLinkedList = function() {
   };
 
   list.removeTail = function() {
-
+    //check if there are any nodes in the LL
+    if (list.count > 0) {
+      //if there are >1 items in LL
+      if (list.count > 1) {
+        //set tail.previous.next = null
+        list.tail.previous.next = null;
+      } else {
+        //If only one node in list, also seat head = null
+        list.head = null;
+      }
+      //set tail = null
+      list.tail = null;
+      //decrement count
+      list.count--;
+    }
   };
 
   list.addToHead = function(value) {
@@ -47,7 +61,7 @@ var DoublyLinkedList = function() {
     } else { //not first item in LL
       //set node.next to equal current head
       node.next = list.head;
-      //set head.next.previous to equal node
+      //set head.previous to equal node
       list.head.previous = node;
       //set head to equal current node
       list.head = node;

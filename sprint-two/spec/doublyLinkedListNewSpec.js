@@ -21,6 +21,17 @@ describe('doublyLinkedList: NEW tests', function() {
     expect(doublyLinkedList.head.value).to.equal(6);
   });
 
+  it('should have a working removeTail method', function() {
+    doublyLinkedList.addToHead(4);
+    doublyLinkedList.removeTail();
+    expect(doublyLinkedList.head).to.equal(null);
+    expect(doublyLinkedList.tail).to.equal(null);
+    doublyLinkedList.addToHead(5);
+    doublyLinkedList.addToHead(6);
+    doublyLinkedList.removeTail();
+    expect(doublyLinkedList.head.next).to.equal(null);
+  });
+
 });
 
 
