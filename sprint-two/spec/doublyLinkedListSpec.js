@@ -1,4 +1,4 @@
-describe('doublyLinkedList', function() {
+describe('doublyLinkedList: tests from linkedList', function() {
   var doublyLinkedList;
 
   beforeEach(function() {
@@ -66,3 +66,4 @@ describe('doublyLinkedList', function() {
   });
 
 });
+

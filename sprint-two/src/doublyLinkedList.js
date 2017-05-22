@@ -8,6 +8,7 @@ var DoublyLinkedList = function() {
 
     node.value = value;
     node.next = null;
+    node.previous = null;
 
     return node;
   };
@@ -29,6 +30,14 @@ var DoublyLinkedList = function() {
 
     //Increment the count
     list.count++;
+  };
+
+  list.removeTail = function() {
+
+  };
+
+  list.addToHead = function() {
+
   };
 
   list.removeHead = function() {
