@@ -48,3 +48,31 @@ describe('tree', function() {
   });
 
 });
+
+describe('tree: advanced content tests- added a parent link to all nodes', function() {
+  var tree;
+
+  beforeEach(function() {
+    tree = Tree();
+  });
+
+  it('should have a property link to it\'s parent', function() {
+    tree.addChild(1);
+    tree.addChild(2);
+    tree.children[1].addChild(3);
+    console.log(tree);
+    expect(tree.children[1].children[0].parent.value).to.equal(2);
+  });
+
+  it('should disassociate a child tree from it\'s parent', function() {
+    tree.addChild(1);
+    tree.addChild(2);
+    tree.children[1].addChild(3);
+    console.log(tree);
+    expect(tree.children[1].children[0].parent.value).to.equal(2);
+    var subtree = tree.children[1].children[0];
+    tree.children[1].children[0].removeFromParent();
+    expect(tree.children[1].children.length).to.equal(0);
+    expect(subtree.parent).to.equal(null);
+  });
+});
