@@ -6,13 +6,28 @@ var Tree = function(value, parent) {
   // your code here
   newTree.children = [];
 
+  //Add a child node to this node
   newTree.addChild = treeMethods.addChild;
+
+  //Traverse the tree, checking to see if it contains a given value
   newTree.contains = treeMethods.contains;
+
+  //Disassoiate a node from it's parent, in both directions
   newTree.removeFromParent = treeMethods.removeFromParent;
+
+  //Apply a callback to the value at every node
+  newTree.traverse = treeMethods.traverse;
+
+  //helper func to check if the node has children
+  newTree.hasChild = treeMethods.hasChild;
   return newTree;
 };
 
 var treeMethods = {};
+
+treeMethods.hasChild = function() {
+  return (this.children.length > 0);
+};
 
 treeMethods.addChild = function(value) {
   var parent = this;
@@ -43,7 +58,7 @@ treeMethods.contains = function(target) {
   return retVal;
 };
 
-treeMethods.removeFromParent = function () {
+treeMethods.removeFromParent = function() {
   var filteredChildren = _.filter(this.parent.children, (child) => {
     return child !== this;
   });
@@ -51,6 +66,21 @@ treeMethods.removeFromParent = function () {
   this.parent.children = filteredChildren;
 
   this.parent = null;
+};
+
+treeMethods.traverse = function(callback) {
+
+  var applyFunc = (node) => {
+    callback(node.value);
+    if(node.hasChild()) {
+      node.children.forEach((node, ind, collection) => {
+        //traverse the tree, applying callback to each node.
+        applyFunc(node);
+      });
+    }
+  };
+
+  applyFunc(this);
 };
 
 

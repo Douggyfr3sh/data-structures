@@ -49,7 +49,7 @@ describe('tree', function() {
 
 });
 
-describe('tree: advanced content tests- added a parent link to all nodes', function() {
+describe('student created: tree- advanced content: added a parent link to all nodes', function() {
   var tree;
 
   beforeEach(function() {
@@ -76,3 +76,47 @@ describe('tree: advanced content tests- added a parent link to all nodes', funct
     expect(subtree.parent).to.equal(null);
   });
 });
+
+describe('student created: tree- advanced content: added a traverse method', function() {
+  var tree;
+
+  beforeEach(function() {
+    tree = Tree();
+  });
+
+  it('should apply callback to all nodes in the tree', () => {
+    var maple = {
+      root: 1,
+      branch1: 2,
+      branch2: 3,
+      leaf1: 4,
+      leaf2: 5
+    };
+
+    var exponentialArr = [1,2 * 2,3 * 3,4 * 4,5 * 5];
+    var resultsArr = [];
+
+    var cb = (node) => {
+      var exponent = node.value *node.value;
+      resultsArr.push[exponent];
+    };
+
+    tree.value = maple.root;
+    tree.addChild(maple.branch1);
+    tree.addChild(maple.branch2);
+    tree.children[0].addChild(maple.leaf1);
+    tree.children[1].addChild(maple.leaf2);
+
+    tree.traverse(cb);
+
+    resultsArr.forEach( (val,ind,arr) => {
+      expect(val).to.equal(exponentialArr[ind]);
+    });
+
+
+
+
+    console.log('tree in new test ', tree);
+  });
+});
+

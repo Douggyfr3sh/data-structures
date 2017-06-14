@@ -1,4 +1,4 @@
-describe('doublyLinkedList: NEW tests', function() {
+describe('student created: advanced content doublyLinkedList: NEW tests', function() {
   var doublyLinkedList;
 
   beforeEach(function() {
